@@ -1,0 +1,114 @@
+<div class="bootstrap-wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+<mat-card>
+    <h1>Add Feedback</h1>
+
+    <mat-card-content>
+        <div class="bootstrap-wrapper">
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <form (ngSubmit)="formSubmit()">
+                        <div class="row mt20">
+                            <div class="col-md-6">
+                                <mat-form-field class="w100" appearance="outline">
+                                    <mat-label>Full Name</mat-label>
+        
+                                    <input
+                                            required
+                                            autofocus
+                                            type="text"
+                                            name="FullName"
+                                            matInput
+                                            placeholder="Enter here"
+                                            [(ngModel)]="feedback.FullName"
+                                    />
+                                </mat-form-field>
+                            </div>
+                        
+                            <div class="col-md-6">
+                                <mat-form-field class="w100" appearance="outline">
+                                    <mat-label>Email</mat-label>
+        
+                                    <input
+                                            required
+                                            autofocus
+                                            type="text"
+                                            name="Email"
+                                            matInput
+                                            placeholder="Enter here"
+                                            [(ngModel)]="feedback.Email"
+                                    />
+                                </mat-form-field>
+        
+                            </div>
+                        
+                            <div class="col-md-6">
+                                <mat-form-field class="w100" appearance="outline">
+                                    <mat-label>Contact No</mat-label>
+        
+                                    <input
+                                            required
+                                            autofocus
+                                            type="text"
+                                            name="Contact No"
+                                            matInput
+                                            placeholder="Enter here"
+                                            [(ngModel)]="feedback.ContactNumber"
+                                    />
+                                </mat-form-field>
+        
+                            </div>
+                      
+                            <div class="col-md-6">
+                              <button mat-icon-button [color]="color" *ngFor="let ratingId of ratingArr;index as i" [id]="'star_'+i" (click)="onClick(i+1)" [matTooltip]="ratingId+1" matTooltipPosition="above">
+                                <mat-icon>
+                                    {{showIcon(i)}}
+                                </mat-icon>
+                                </button>
+                                <mat-error *ngIf="starCount == null || starCount == 0">
+                                    Star count is <strong>required</strong> and cannot be zero
+                                </mat-error>
+                                <p class="body-2">
+                                    Your rated 
+                                    <span class="body-2">{{rating}}</span> / 
+                                    <span class="body-2">{{starCount}}</span>
+                                </p>
+                             
+                            </div>
+                        
+                            <div class="col-12">
+                                    
+                                <mat-form-field class="w-100" style="width: 100%;" appearance="outline">
+                                    <mat-label>Comments</mat-label>
+
+                                    <textarea
+                                            name="description"
+                                            matInput
+                                            placeholder="Enter Category Description"
+                                            [(ngModel)]="feedback.Commnets"
+                                            rows="15"
+                                    ></textarea>
+                                </mat-form-field>
+
+                            </div>
+                        </div>
+
+                        <div class="row mt20">
+                            <div class="col-12">
+                                <div class="container text-center mt15">
+                                    <button mat-raised-button color="accent">Add</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>
+</div>
+</div>
+</div>
+</div>
